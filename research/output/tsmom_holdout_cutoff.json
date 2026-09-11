@@ -1,0 +1,32 @@
+{
+  "_protocol": "Locked session 26 (2026-09-09). Every bar at or before each combo's last_bar_used_ts was used, directly or indirectly, by sessions 23-26's research (H_GIVEBACK, H_DIRECTIONAL, H_TP_EXIT, H_WIDE_TRAIL, H_POST_TP_REENTRY, H_POST_TP_SCORE_V2) -- train AND test slices of the walk-forward, since the 70/30 split is drawn from this same fixed window and multiple mechanism designs were iterated against the same test slice across sessions 25-26. Bars strictly AFTER last_bar_used_ts (i.e. requiring a fresh candle-data fetch -- these files were not re-fetched after session 23) are the untouched holdout: no candidate selection, walk-forward split, or design decision anywhere in this thread has seen them. RULE: do not re-run the walk-forward/candidate search including holdout bars in the search itself. Once enough holdout history has accumulated, evaluate the CURRENTLY FINALIZED design (see current_candidate below) against the holdout bars ONCE, report the result honestly regardless of outcome, and do not iterate the design against the holdout afterward -- a second confirmation run on the same holdout defeats the point.",
+  "current_candidate": {
+    "description": "Session 26's H_POST_TP_SCORE_V2 per-combo selection, as reported in HYPOTHESES.md -- this is the design to confirm, not something to re-tune when the holdout is evaluated.",
+    "BTC_4h": {"score_type": "cmf", "score_lookback": 20, "eps": 0.0, "hurst_gate": false, "tp_atr_mult": 3.5},
+    "ETH_8h": {"score_type": "vol_norm", "score_lookback": 2, "eps": 0.25, "hurst_gate": false, "tp_atr_mult": 2.0},
+    "ETH_12h": {"score_type": "cmf", "score_lookback": 20, "eps": 0.2, "hurst_gate": false, "tp_atr_mult": 3.5},
+    "SOL_12h": {"score_type": "vol_norm", "score_lookback": 3, "eps": 0.5, "hurst_gate": true, "tp_atr_mult": 2.5}
+  },
+  "combos": {
+    "BTC_4h": {
+      "lookback_bars": 1,
+      "last_bar_used_ts": "2026-08-31 20:00:00",
+      "n_bars_used_for_research": 5000
+    },
+    "ETH_8h": {
+      "lookback_bars": 1,
+      "last_bar_used_ts": "2026-08-31 16:00:00",
+      "n_bars_used_for_research": 4611
+    },
+    "ETH_12h": {
+      "lookback_bars": 1,
+      "last_bar_used_ts": "2026-08-31 12:00:00",
+      "n_bars_used_for_research": 3407
+    },
+    "SOL_12h": {
+      "lookback_bars": 2,
+      "last_bar_used_ts": "2026-08-31 12:00:00",
+      "n_bars_used_for_research": 3407
+    }
+  }
+}
