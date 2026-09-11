@@ -160,7 +160,7 @@ research/
   tsmom_gap_hypothesis.py, tsmom_fast_hypothesis.py, tsmom_funded_phase_sim.py
   fetch_reference_data.py, fetch_tsmom_candles.py   data pull (Hyperliquid public API)
   output/                            candle data (BTC/ETH/SOL x 4h/8h/12h) + every result JSON
-RESEARCH_LOG.md                      full session-by-session writeup, TSMOM thread only
+RESEARCH_LOG.md                      not uploaded but avaiable
 ```
 
 **Running**: most scripts are self-contained — `python research/tsmom_walkforward.py`
